@@ -4,9 +4,7 @@ import math
 
 pygame.init()
 
-# -----------------------------
 # Window settings
-# -----------------------------
 WIDTH = 900
 HEIGHT = 650
 TOOLBAR_HEIGHT = 90
@@ -16,9 +14,7 @@ pygame.display.set_caption("Paint - Practice 11")
 
 clock = pygame.time.Clock()
 
-# -----------------------------
 # Colors
-# -----------------------------
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (180, 180, 180)
@@ -27,14 +23,10 @@ GREEN = (50, 200, 80)
 BLUE = (60, 120, 230)
 YELLOW = (250, 220, 50)
 
-# -----------------------------
 # Font
-# -----------------------------
 font = pygame.font.SysFont("Verdana", 17)
 
-# -----------------------------
 # Paint settings
-# -----------------------------
 background_color = WHITE
 current_color = BLACK
 current_tool = "brush"
@@ -226,9 +218,7 @@ def draw_shape(surface, end_mouse_pos, preview=False):
         pygame.draw.polygon(surface, current_color, points, width)
 
 
-# -----------------------------
 # Main loop
-# -----------------------------
 while True:
     mouse_pos = pygame.mouse.get_pos()
     mouse_pressed = pygame.mouse.get_pressed()
@@ -238,9 +228,9 @@ while True:
             pygame.quit()
             sys.exit()
 
-        # -----------------------------
+    
         # Keyboard controls
-        # -----------------------------
+    
         if event.type == pygame.KEYDOWN:
             # Tool selection
             if event.key == pygame.K_1:
@@ -281,9 +271,9 @@ while True:
             elif event.key == pygame.K_w:
                 current_color = WHITE
 
-        # -----------------------------
+    
         # Start drawing shape
-        # -----------------------------
+    
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1 and mouse_pos[1] > TOOLBAR_HEIGHT:
                 if current_tool in [
@@ -295,26 +285,26 @@ while True:
                     drawing_shape = True
                     start_pos = get_canvas_pos(mouse_pos)
 
-        # -----------------------------
+    
         # Finish drawing shape
-        # -----------------------------
+    
         if event.type == pygame.MOUSEBUTTONUP:
             if event.button == 1 and drawing_shape:
                 draw_shape(canvas, mouse_pos, preview=False)
                 drawing_shape = False
                 start_pos = None
 
-    # -----------------------------
+
     # Brush drawing
-    # -----------------------------
+
     if mouse_pressed[0] and mouse_pos[1] > TOOLBAR_HEIGHT:
         if current_tool == "brush":
             canvas_pos = get_canvas_pos(mouse_pos)
             pygame.draw.circle(canvas, current_color, canvas_pos, brush_size)
 
-    # -----------------------------
+
     # Draw screen
-    # -----------------------------
+
     screen.fill(WHITE)
 
     # Draw toolbar

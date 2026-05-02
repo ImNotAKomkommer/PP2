@@ -62,7 +62,7 @@ line_offset = 0
 
 
 def draw_player_car(x, y):
-    """Draws player car with simple details."""
+    """Draws player car"""
     pygame.draw.rect(screen, BLUE, (x, y, player_width, player_height), border_radius=8)
 
     # Windshield
@@ -83,7 +83,7 @@ def draw_player_car(x, y):
 
 
 def draw_enemy_car(x, y):
-    """Draws enemy car with simple details."""
+    """Draws enemy car"""
     pygame.draw.rect(screen, RED, (x, y, enemy_width, enemy_height), border_radius=8)
 
     # Windows

@@ -255,4 +255,5 @@ while True:
     screen.blit(speed_text, (WIDTH - speed_text.get_width() - 15, 45))
 
     pygame.display.update()
+    # Locked to 60 fps
     clock.tick(FPS)
